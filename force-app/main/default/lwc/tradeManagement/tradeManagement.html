@@ -1,0 +1,49 @@
+<template>
+    <lightning-card variant="Narrow" title="Trades" icon-name="standard:contract_payment">
+        <div class= "slds-p-bottom_xx-large slds-p-right_medium">
+            <lightning-button label="New Trade" title="New Trade" onclick={openDialog} class="slds-float_right"></lightning-button>
+        </div>
+        <div if:false={emptyData} class="slds-m-around_small">
+            <lightning-datatable key-field="id" data={data} hide-checkbox-column="true"
+                columns={columns}>
+            </lightning-datatable>
+        </div>
+        <div if:true={emptyData} class="slds-m-around_small">
+            <p>No trades found</p>
+        </div>
+    </lightning-card>
+
+    <template if:true={showDialog}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <lightning-spinner variant="brand" size="large" if:true={toggleSearchSpinner}></lightning-spinner>
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    
+                    <h2 id="modal-heading-search" class="slds-text-heading_medium slds-hyphenate">Buscar Suscripciones
+                        por Email</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-search">
+                    <lightning-combobox name="SellCurrency" label="Sell Currency" value={value}
+                            placeholder="Sell Currency" options={options} onchange={sellCurrencyHandler}>
+                    </lightning-combobox>
+
+                    <lightning-combobox name="BuyCurrency" label="Buy Currency" value={value} class="slds-p-bottom_medium"
+                            placeholder="Buy Currency" options={options} onchange={buyCurrencyHandler}>
+                    </lightning-combobox>
+
+                    <p>Rate: <lightning-formatted-text value={rateValue} ></lightning-formatted-text></p>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-float_left slds-button_success" onclick={createTrade}
+                        title="Create">Create</button>
+                    <button class="slds-button slds-button_neutral" onclick={closeDialog}
+                        title="Cancel">Cancel</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
