@@ -1,7 +1,7 @@
 /*
 * @description: Controller class of tradeManagement LWC
 * @author: jmruizperez1999@gmail.com
-* @date: 01/06/2022
+* @date: 01/07/2022
 * @class: TradeManagementController
 * @test: TradeManagementControllerTest
 */
@@ -9,7 +9,7 @@ public class TradeManagementController {
     /*
     * @description: Method that get all trades from database
     * @author: jmruizperez1999@gmail.com
-    * @date: 01/06/2022
+    * @date: 01/07/2022
     * @return: List<Trade__c> Trade list
     */
     @AuraEnabled

@@ -1,7 +1,7 @@
 /*
 * @description: Class for Trade__c object methods
 * @author: jmruizperez1999@gmail.com
-* @date: 01/06/2022
+* @date: 01/07/2022
 * @class: TradeUtil
 * @test: TradeUtilTest
 */
@@ -9,7 +9,7 @@ public class TradeUtil {
     /*
     * @description: Method that query Trade__c object by fields
     * @author: jmruizperez1999@gmail.com
-    * @date: 01/06/2022
+    * @date: 01/07/2022
     * @param: List<String> fields to query
     * @return: List<Trade__c> Trade list
     */
