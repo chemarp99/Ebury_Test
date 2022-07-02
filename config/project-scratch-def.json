@@ -1,7 +1,9 @@
 {
-  "orgName": "casa company",
+  "orgName": "Ebury",
   "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "language": "en_US",
+  "description": "Test Scratch Org to validate Ebury Salesforce Test",
+  "features": ["EnableSetPasswordInApi", "AddCustomObjects:30", "AddCustomApps:30", "MultiCurrency"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
