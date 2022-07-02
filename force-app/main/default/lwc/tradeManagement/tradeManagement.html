@@ -15,7 +15,7 @@
 
     <template if:true={showDialog}>
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
-            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            aria-describedby="modal-content-id-1" class="slds-modal slds-modal_medium slds-fade-in-open">
             <lightning-spinner variant="brand" size="large" if:true={toggleSearchSpinner}></lightning-spinner>
             <div class="slds-modal__container">
                 <header class="slds-modal__header">
@@ -23,7 +23,6 @@
                     <h2 id="modal-heading-search" class="slds-text-heading_medium slds-hyphenate">Buscar Suscripciones
                         por Email</h2>
                 </header>
-                <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-search">
                     <lightning-combobox name="SellCurrency" label="Sell Currency" value={value}
                             placeholder="Sell Currency" options={options} onchange={sellCurrencyHandler}>
@@ -33,9 +32,12 @@
                             placeholder="Buy Currency" options={options} onchange={buyCurrencyHandler}>
                     </lightning-combobox>
 
-                    <p>Rate: <lightning-formatted-text value={rateValue} ></lightning-formatted-text></p>
+                    <p>Rate: {rateValue}</p>
+
+                    <lightning-input class="slds-p-top_medium slds-p-bottom_medium" type="text" value={value} onchange={sellAmountInputHandler} label="Sell Amount"></lightning-input>
+
+                    <p>Buy Amount: {buyAmountValue}</p>
                 </div>
-                <!-- Modal/Popup Box LWC footer starts here -->
                 <footer class="slds-modal__footer">
                     <button class="slds-button slds-float_left slds-button_success" onclick={createTrade}
                         title="Create">Create</button>

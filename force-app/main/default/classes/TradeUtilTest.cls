@@ -27,4 +27,9 @@ public class TradeUtilTest {
             'Buy_Amount__c',
             'Date_Booked__c'}).size());
     }
+
+    @isTest
+    static void testSaveNewTrade(){
+        System.assertEquals(true, TradeUtil.saveNewTrade('GBP', 100, 'EUR', 1.2345));
+    }
 }

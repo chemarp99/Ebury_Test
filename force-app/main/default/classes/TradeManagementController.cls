@@ -27,4 +27,20 @@ public class TradeManagementController {
             return null;
         }
     }
+
+    /*
+    * @description: Method that receive a new Trade from LWC and call Util class to save it.
+    * @author: jmruizperez1999@gmail.com
+    * @date: 02/07/2022
+    * @return: Boolean True if OK False if NOT OK
+    */
+    @AuraEnabled
+    public static Boolean createTrade(String sellCcy, Decimal sellAmnt, String buyCcy, Decimal rate){
+        try{
+            return TradeUtil.saveNewTrade(sellCcy, sellAmnt, buyCcy, rate);
+        }catch(Exception ex){
+            System.debug('Exception: ' + ex.getMessage());
+            return false;
+        }
+    }
 }

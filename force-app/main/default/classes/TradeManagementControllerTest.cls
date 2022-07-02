@@ -17,4 +17,9 @@ public class TradeManagementControllerTest {
     static void testGetTrades(){
         System.assertEquals(1, TradeManagementController.getTrades().size());
     }
+
+    @isTest
+    static void testCreateTrade(){
+        System.assertEquals(true, TradeManagementController.createTrade('GBP', 100, 'EUR', 1.2345));
+    }
 }
