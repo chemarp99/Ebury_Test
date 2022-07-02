@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Chatter_Post</name>
+        <label>Send Chatter Post</label>
+        <locationX>1070</locationX>
+        <locationY>486</locationY>
+        <actionName>chatterPost</actionName>
+        <actionType>chatterPost</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <elementReference>Body</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>subjectNameOrId</name>
+            <value>
+                <stringValue>3D00G7Q000000RYsk</stringValue>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Send Chatter Post After Trade Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Chatter Post After Trade Creation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>969</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Send_Chatter_Post</targetReference>
+        </connector>
+        <object>Trade__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>Body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;A new trade has been created with the following data: &lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Sell Currency: {!$Record.Sell_Currency__c}&lt;/li&gt;&lt;li&gt;Sell Amount: {!$Record.Sell_Amount__c}&lt;/li&gt;&lt;li&gt;Buy Currency: {!$Record.Buy_Currency__c}&lt;/li&gt;&lt;li&gt;Buy Amount: {!$Record.Buy_Amount__c}&lt;/li&gt;&lt;li&gt;Rate: {!$Record.Rate__c}&lt;/li&gt;&lt;li&gt;Booked Date: {!$Record.Date_Booked__c}&lt;/li&gt;&lt;li&gt;Link to the trade: &lt;a href=&quot;https://cunning-otter-r02vcc-dev-ed.lightning.force.com/lightning/r/Trade__c/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;https://cunning-otter-r02vcc-dev-ed.lightning.force.com/lightning/r/Trade__c/{!$Record.Id}/view&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</text>
+    </textTemplates>
+</Flow>
